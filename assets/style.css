@@ -1,0 +1,567 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+h1,
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#alarmcenter {
+    font-size: 1.2em;
+    /* Ajuste o tamanho da fonte conforme necessário */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sessao2 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.form_sessao2 input {
+    width: 800px;
+}
+
+.form_sessao2 label {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+
+.local {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.local_input {
+    display: flex;
+    width: 130px;
+}
+
+.local_label {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+
+.fones {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fones_label {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fones_input {
+    display: flex;
+    width: 100%;
+}
+
+.info_instalacao {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info_label {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.info_input {
+    display: flex;
+    width: 100%;
+}
+
+.form_servicos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form_servicos label {
+    flex: 1 0 40%;
+    /* flex-grow: 1, flex-shrink: 0, flex-basis: 40% */
+    white-space: nowrap;
+}
+
+.form_servicos input {
+    margin-left: 10px;
+    width: 10px;
+}
+
+.avisar-cliente {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.avisar-cliente span {
+    margin: 0 0 10px 0;
+}
+
+.avisar-cliente label {
+    white-space: nowrap;
+}
+
+.avisar-cliente input {
+    margin-right: 5px;
+    width: 20px;
+}
+
+.container_acesso {
+    display: flex;
+    margin-top: 20px;
+}
+
+.checkbox_acesso {
+    display: flex;
+    flex-direction: row;
+}
+
+.container_acesso label {
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário */
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-right: 20px;
+}
+
+.container_acesso input {
+    width: 20px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.horarios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.horarios label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário */
+    white-space: nowrap;
+}
+
+.horarios input {
+    display: flex;
+    align-items: center;
+}
+
+#perfilCliente {
+    height: 100px;
+}
+
+.providencia label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.providencia input[type="checkbox"] {
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
+    width: 20px;
+}
+
+.providencia input[type="text"] {
+    margin-left: 5px;
+    /* Ajuste a margem conforme necessário */
+    width: 200px;
+}
+
+.senhas {
+    margin: 10px 0 10px 0;
+}
+
+.senhas label {
+    white-space: nowrap;
+    margin-left: 5px;
+}
+
+.equipamentos label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário */
+}
+
+
+.equipamentos input[type="password"] {
+    font-family: monospace;
+    /* Monospace para mostrar a senha */
+}
+
+.equipamentos input[type="checkbox"] {
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
+    width: 20px;
+}
+
+.senhas {
+    display: flex;
+}
+
+.setorContainer {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.setor-linha-1,
+.setor-linha-2 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Ajuste a margem conforme necessário */
+}
+
+.setor-linha-2 {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.setor-linha-1 h3 {
+    margin-right: 10px;
+    white-space: nowrap;
+    /* Ajuste a margem conforme necessário */
+}
+
+.setorContainer label,
+input {
+    margin-right: 10px;
+    /* Ajuste a margem conforme necessário */
+}
+
+.setorContainer input[type="checkbox"] {
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
+    width: 50px;
+}
+
+.usuarioContainer {
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.usuario {
+    display: flex;
+}
+
+.usuarioContainer label {
+    display: flex;
+    align-items: center;
+    width: 50px;
+}
+
+.usuarioContainer input[type="checkbox"] {
+    margin-right: 5px;
+    width: 20px;
+}
+
+.usuario label,
+.usuario input {
+    margin-bottom: 10px;
+}
+
+.button-gerar {
+    display: flex;
+    justify-content: center;
+}
+
+.button-gerar button {
+    margin: 20px;
+}
+
+.button-remove {
+    background-color: #ee2727;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-remove:hover {
+    background-color: #e64747;
+}
+
+.container {
+    margin: 20px 0;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form h2 {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.acesso-remoto {
+    display: flex;
+    flex-direction: row;
+}
+
+.acesso-remoto label {
+    margin-right: 20px;
+    /* Ajuste conforme necessário */
+}
+
+.comunicação label {
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    body {
+        max-width: 500px;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        /* Adjust font size */
+        margin-top: 5px;
+        /* Adjust spacing */
+    }
+
+    .sessao1 label,
+    .sessao1 input {
+        flex: 0 0 100%;
+        /* Set full width on smaller screens */
+    }
+
+    .local_label,
+    .local_input {
+        flex: 0 0 100%;
+        /* Set full width on smaller screens */
+        margin-right: 0;
+        /* Remove margin on smaller screens */
+    }
+
+    .fones_label,
+    .fones_input {
+        flex: 0 0 100%;
+        /* Set full width on smaller screens */
+        margin-right: 0;
+        /* Remove margin on smaller screens */
+    }
+
+    .info_label,
+    .info_input {
+        flex: 0 0 100%;
+        /* Set full width on smaller screens */
+        margin-right: 0;
+        /* Remove margin on smaller screens */
+    }
+
+    .container_acesso {
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
+    }
+
+
+    .horarios label {
+        margin-bottom: 10px;
+        /* Add some spacing between labels on smaller screens */
+    }
+
+    .horarios label {
+        display: block;
+        margin-bottom: 10px;
+        /* Ajuste conforme necessário */
+        width: 100px;
+    }
+
+    .horarios input {
+        display: block;
+        width: 100px;
+    }
+
+    .providencia label {
+        margin-bottom: 5px;
+        /* Ajuste conforme necessário para dispositivos móveis */
+    }
+
+    .senhas {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .acesso-remoto {
+        flex-direction: column;
+    }
+
+    .acesso-remoto label {
+        margin-right: 0;
+        /* Remova a margem na versão para dispositivos móveis */
+        margin-bottom: 10px;
+        /* Adicione uma margem inferior entre os rótulos */
+    }
+
+    .comunicação label {
+        display: inline-block;
+        margin-right: 50px;
+        /* Adicione uma margem entre os rótulos */
+    }
+
+    .form_servicos {
+        flex-direction: column;
+    }
+
+    .setorContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .setor-linha-1,
+    .setor-linha-2 {
+        flex-direction: column;
+        /* Ajuste a margem conforme necessário */
+    }
+
+    .setorContainer input {
+        width: 90%;
+    }
+
+    .setor {
+        flex-direction: column;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+    }
+
+    #alarmcenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .usuario {
+        flex-direction: column; 
+    }
+    
+    .usuario label {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .usuario input {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .usuario input[type="checkbox"] {
+        margin: auto auto 20px auto;
+        /* Ajuste a margem conforme necessário */
+        width: 20px;
+    }
+
+    .form_sessao2 input {
+        width: 100%;
+    }
+
+    .avisar-cliente label {
+        white-space: wrap;
+    }
+
+    .container_acesso label {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .container_acesso input {
+        width: 20px;
+        display: flex;
+        margin-left: 20px;
+    }
+
+    .horarios label {    
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+
+
+}

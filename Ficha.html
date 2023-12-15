@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de monitoramento</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <img src="/Img/logo.png" alt="Alarm Center Logo">
+        <h1>Ficha de Monitoramento</h1>
+    </header>
+
+    <div class="container">
+        <section>
+            <form action="#" method="get" class="styled-form">
+
+                <div class="sessao1">
+                    <label for="conta" id="alarmcenter">Empresa: Alarm Center</label>
+
+                    <label for="conta">Conta:</label>
+                    <input type="text" id="conta" name="conta">
+
+                    <label for="particao">Partição:</label>
+                    <input type="text" id="particao" name="particao">
+
+                    <label for="tecnico">Técnico:</label>
+                    <input type="text" id="tecnico" name="tecnico">
+                </div>
+
+                <h3>Dados do Local da Instalação</h3>
+
+                <div class="sessao2">
+
+                    <div class="form_sessao2">
+                        <div class="form_bloco">
+                            <label for="nomeRazao">Nome / Razão social:</label>
+                            <input type="text" id="nomeRazao" class="sessao_nomes" name="nomeRazao">
+                        </div>
+                        <div class="form_bloco">
+                            <label for="nomeFantasia">Nome Fantasia:</label>
+                            <input type="text" id="nomeFantasia" class="sessao_nomes" name="nomeFantasia">
+                        </div>
+                        <div class="form_bloco">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco">
+                        </div>
+                    </div>
+                    <div class="local">
+                        <label for="bairro" class="local_label">Bairro:</label>
+                        <input type="text" id="bairro" name="bairro" class="local_input">
+
+                        <label for="cidade" class="local_label">Cidade:</label>
+                        <input type="text" id="cidade" name="cidade" class="local_input">
+
+                        <label for="estado" class="local_label">Estado:</label>
+                        <input type="text" id="estado" name="estado" class="local_input">
+
+                        <label for="cep" class="local_label">CEP:</label>
+                        <input type="text" id="cep" name="cep" class="local_input">
+                    </div>
+                    <div class="fones">
+                        <label for="fone1" class="fones_label">Fone 1 do Local:</label>
+                        <input type="tel" id="fone1" name="fone1" class="fones_input">
+
+                        <label for="fone2" class="fones_label">Fone 2 do Local:</label>
+                        <input type="tel" id="fone2" name="fone2" class="fones_input">
+                    </div>
+                    <div class="info_instalacao">
+                        <label for="emailResp" class="info_label">E-mail Responsável:</label>
+                        <input type="email" id="emailResp" name="emailResp" class="info_input">
+
+                        <label for="emailResp" class="info_label">Resp. Alterações Cadastrais Sigma: </label>
+                        <input type="email" id="alteSigma" name="emailResp" class="info_input">
+                    </div>
+                </div>
+                <br>
+
+                <h3>Serviços Prestados</h3>
+
+                <div class="form_servicos">
+                    <label><input type="checkbox" name="servico" value="Monitoramento Basico"> Monitoramento
+                        Básico</label><br>
+                    <label><input type="checkbox" name="servico" value="Monitoramento Vip"> Monitoramento
+                        VIP</label><br>
+                    <label><input type="checkbox" name="servico" value="Veiculo Apoio"> Veículo de Apoio</label><br>
+                    <label><input type="checkbox" name="servico" value="GPRS"> GPRS</label><br>
+                    <label><input type="checkbox" name="servico" value="Monitoramento Particao"> Monitoramento de
+                        Partição</label><br>
+                    <label><input type="checkbox" name="servico" value="Locacao"> Locação</label><br>
+                    <label><input type="checkbox" name="servico" value="Seguro Monitoramento"> Seguro
+                        Monitoramento</label><br>
+                    <label><input type="checkbox" name="servico" value="Manutencao"> Manutenção</label><br>
+                    <label><input type="checkbox" name="servico" value="Garantia Extendida"> Garantia
+                        Extendida</label><br>
+                    <label><input type="checkbox" name="servico" value="Acorda Vigia"> Acorda Vigia</label><br>
+                </div>
+
+                <br>
+
+                <h3>Observações e Particularidades sobre o Cliente</h3>
+
+                <div class="form_observacoes">
+                    <div class="avisar-cliente">
+                        <span>Avisar ao cliente (Disparos):</span>
+                        <label><input type="checkbox" name="avisarDisparo" value="Imediatamente en qualquer disparo">
+                            Imediatamente em
+                            qualquer disparo</label>
+                        <label><input type="checkbox" name="avisarDisparo"
+                                value="Apenas em caso de arrombamento ou suspeita"> Apenas em
+                            caso
+                            de arrombamento ou suspeita</label>
+                        <label><input type="checkbox" name="avisarDisparo"
+                                value="Após a chegada do inspetor em qualquer disparo"> Após a chegada do
+                            inspetor em qualquer disparo</label>
+                        <label><input type="checkbox" name="avisarDisparo" value="Apenas em caso de arrombamento real">
+                            Apenas em
+                            caso de
+                            arrombamento real</label>
+                    </div>
+
+                    <div class="container_acesso">
+                        <label>Acesso remoto à Central:
+                            <div class="checkbox_acesso">
+                                <input type="radio" name="acessoRemoto" value="Sim"> Sim
+                                <input type="radio" name="acessoRemoto" value="Nao"> Não
+                            </div>
+                        </label>
+
+                        <label>URA habilitada:
+                            <div class="checkbox_acesso">
+                                <input type="radio" name="uraHabilitada" value="Sim"> Sim
+                                <input type="radio" name="uraHabilitada" value="Nao"> Não
+                            </div>
+                        </label>
+                    </div>
+                    <br>
+
+                    <div class="horarios">
+                        <label for="horarioAtivacao">
+                            <p>Horário da Ativação Automática:</p>
+                            <input type="time" id="horarioAtivacao" name="horarioAtivacao">
+                        </label>
+                    </div>
+                    <div class="horarios">
+                        <label for="intervaloSemMovimento">
+                            <p>Intervalo de Tempo para Ativar "Sem Movimento":</p>
+                            <input type="time" id="intervaloSemMovimento" name="intervaloSemMovimento">
+                        </label>
+                    </div>
+                </div>
+    </div>
+    <label for="perfilCliente" class="horarios_cliente">
+        Perfil do Cliente:
+        <textarea type="text" id="perfilCliente" name="perfilCliente" rows="5" cols="50"></textarea>
+    </label>
+
+
+
+    <h3 for="observacoesLocal">Observações e peculiaridades sobre o local</h3><br>
+
+    <div class="observacoes_local">
+        <label for="comoChegar">
+            Como chegar ao local:
+            <textarea id="comoChegar" name="comoChegar" rows="4" cols="50"></textarea>
+        </label>
+
+        <label for="aparenciaImovel">
+            Aparência do Imóvel:
+            <textarea id="aparenciaImovel" name="aparenciaImovel" rows="4" cols="50"></textarea>
+        </label>
+
+        <label for="localizacaoButton">
+            Localização do Button:
+            <textarea id="localizacaoButton" name="localizacaoButton" rows="4" cols="50"></textarea>
+        </label>
+
+        <h3>Providências do Inspetor</h3>
+
+        <div class="providencia">
+            <label><input type="checkbox" name="providenciasInspetor" value="Vigia no local"> Vigia no local</label>
+            <label><input type="checkbox" name="providenciasInspetor" value="Cachorro no local"> Cachorro no
+                local</label>
+            <label><input type="checkbox" name="providenciasInspetor" value="Arma no local"> Arma no local</label>
+
+            <label>
+                <input type="checkbox" name="providenciasInspetor" value="Chaves do local">
+                Chaves do local - Número dos chaveiros:
+                <input type="text" id="numeroChaveiros" name="numeroChaveiros">
+            </label>
+        </div>
+    </div>
+
+    <h3>Equipamentos de Segurança</h3>
+
+    <div class="equipamentos">
+        <label for="modeloCentral">Modelo da Central:</label>
+        <input type="text" id="modeloCentral" name="modeloCentral">
+
+        <label for="localCentral">Local da Central:</label>
+        <input type="text" id="localCentral" name="localCentral">
+
+        <label for="localTeclado">Local do Teclado:</label>
+        <input type="text" id="localTeclado" name="localTeclado">
+
+        <div class="senhas">
+            <label for="senhaMaster">Senha Master:</label>
+            <input type="text" id="senhaMaster" name="senhaMaster">
+
+            <label for="senhaInstalador">Senha Instalador:</label>
+            <input type="text" id="senhaInstalador" name="senhaInstalador">
+        </div>
+        <div class="acesso-remoto">
+            <label>Acesso Remoto com:</label>
+            <label><input type="checkbox" name="acessoRemotoTeste" value="Controle Teste Automatico"> Controle
+                teste
+                automático</label>
+            <label><input type="checkbox" name="acessoRemoto12h" value="12H"> 12H</label>
+            <label><input type="checkbox" name="acessoRemoto24h" value="24H"> 24H</label>
+        </div>
+
+        <div class="comunicação">
+            <label>Meios de Comunicação da Central:
+                <label><input type="checkbox" name="meiosComunicacao" value="Ethernet"> Ethernet</label>
+                <label><input type="checkbox" name="meiosComunicacao" value="GPRS"> GPRS</label>
+                <label><input type="checkbox" name="meiosComunicacao" value="Linha Telefonica"> Linha
+                    Telefônica</label>
+            </label>
+        </div>
+    </div>
+    <br><br>
+
+    <h3>Distribuição de Setores</h3>
+
+    <div id="setoresContainer" class="setorContainer">
+        <!-- Seção para o primeiro setor (já visível) -->
+
+        <div class="setor">
+            <div class="setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor1">Setor: 1</h3>
+                <label for="localSetor1">Local:</label>
+                <input type="text" class="localSetor" name="localSetor1" id="localSetor1">
+                <label for="cameraSetor1">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor1" id="cameraSetor1">
+            </div>
+            <div class="setor-linha-2">
+                <label for="particaoSetor1">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor1" id="particaoSetor1">
+                <label for="modeloSetor1">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor1" id="modeloSetor1">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor1"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor1"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+
+
+        <!-- Seções para os próximos setores (inicialmente escondidos) -->
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor2">Setor: 2</h3>
+                <label for="localSetor2">Local:</label>
+                <input type="text" class="localSetor" name="localSetor2" id="localSetor2">
+                <label for="cameraSetor2">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor2" id="cameraSetor2">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor2">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor2" id="particaoSetor2">
+                <label for="modeloSetor2">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor2" id="modeloSetor2">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor2"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor2"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor3">Setor: 3</h3>
+                <label for="localSetor3">Local:</label>
+                <input type="text" class="localSetor" name="localSetor3" id="localSetor3">
+                <label for="cameraSetor3">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor3" id="cameraSetor3">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor3">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor3" id="particaoSetor3">
+                <label for="modeloSetor3">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor3" id="modeloSetor3">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor3"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor3"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor4">Setor: 4</h3>
+                <label for="localSetor4">Local:</label>
+                <input type="text" class="localSetor" name="localSetor4" id="localSetor4">
+                <label for="cameraSetor4">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor4" id="cameraSetor4">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor4">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor4" id="particaoSetor4">
+                <label for="modeloSetor4">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor4" id="modeloSetor4">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor4"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor4"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor5">Setor: 5</h3>
+                <label for="localSetor5">Local:</label>
+                <input type="text" class="localSetor" name="localSetor5" id="localSetor5">
+                <label for="cameraSetor5">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor5" id="cameraSetor5">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor5">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor5" id="particaoSetor5">
+                <label for="modeloSetor5">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor5" id="modeloSetor5">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor5"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor5"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor6">Setor: 6</h3>
+                <label for="localSetor6">Local:</label>
+                <input type="text" class="localSetor" name="localSetor6" id="localSetor6">
+                <label for="cameraSetor6">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor6" id="cameraSetor6">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor6">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor6" id="particaoSetor6">
+                <label for="modeloSetor6">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor6" id="modeloSetor6">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor6"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor6"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor7">Setor: 7</h3>
+                <label for="localSetor7">Local:</label>
+                <input type="text" class="localSetor" name="localSetor7" id="localSetor7">
+                <label for="cameraSetor7">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor7" id="cameraSetor7">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor7">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor7" id="particaoSetor7">
+                <label for="modeloSetor7">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor7" id="modeloSetor7">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor7"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor7"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor8">Setor: 8</h3>
+                <label for="localSetor8">Local:</label>
+                <input type="text" class="localSetor" name="localSetor8" id="localSetor8">
+                <label for="cameraSetor8">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor8" id="cameraSetor8">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor8">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor8" id="particaoSetor8">
+                <label for="modeloSetor8">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor8" id="modeloSetor8">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor8"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor8"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor9">Setor: 9</h3>
+                <label for="localSetor9">Local:</label>
+                <input type="text" class="localSetor" name="localSetor9" id="localSetor9">
+                <label for="cameraSetor9">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor9" id="cameraSetor9">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor9">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor9" id="particaoSetor9">
+                <label for="modeloSetor9">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor9" id="modeloSetor9">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor9"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor9"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+        <div class="setor" style="display: none">
+            <div class="setor setor-linha-1">
+                <h3 class="nomeSetor" id="nomeSetor10">Setor: 10</h3>
+                <label for="localSetor10">Local:</label>
+                <input type="text" class="localSetor" name="localSetor10" id="localSetor10">
+                <label for="cameraSetor10">Câmera:</label>
+                <input type="text" class="cameraSetor" name="cameraSetor10" id="cameraSetor10">
+            </div>
+            <div class="setor setor-linha-2">
+                <label for="particaoSetor10">Partição:</label>
+                <input type="text" class="particaoSetor" name="particaoSetor10" id="particaoSetor10">
+                <label for="modeloSetor10">Modelo:</label>
+                <input type="text" class="modeloSetor" name="modeloSetor10" id="modeloSetor10">
+                <input type="checkbox" class="cameraInternaSetor" name="cameraInternaSetor" id="cameraInternaSetor10"
+                    value="Interno"> Interno
+                <input type="checkbox" class="cameraExternaSetor" name="cameraExternaSetor" id="cameraExternaSetor10"
+                    value="Externo"> Externo
+            </div>
+        </div>
+
+
+    </div>
+    <div class="button-gerar">
+        <button id="adicionarSetorBtn" type="button">Adicionar Setor</button>
+        <button id="ocultarUltimoSetorBtn" class="button-remove" type="button">Remover Setor</button>
+    </div>
+
+
+
+    <section class="form-section">
+        <h3>Cadastro de usuários e contatos</h3>
+        <form action="#" method="post" class="styled-form">
+
+            <div id="usuariosContainer" class="usuarioContainer">
+                <div class="usuario">
+                    <h3>1 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade" name="propriedade">
+                </div>
+
+                <!--Aqui começa os usuario invisiveis-->
+                <div class="usuario" style="display: none">
+                    <h3>2 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome2" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome2" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao2" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado2" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave2" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular2" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo2" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email2" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario2" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade2" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>3 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome3" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome3" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao3" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado3" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave3" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular3" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo3" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email3" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario3" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade3" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>4 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome4" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome4" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao4" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado4" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave4" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular4" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo4" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email4" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario4" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade4" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>5 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome5" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome5" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao5" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado5" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave5" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular5" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo5" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email5" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario5" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade5" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>6 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome6" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome6" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao6" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado6" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave6" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular6" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo6" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email6" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario6" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade6" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>7 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome7" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome7" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao7" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado7" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave7" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular7" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo7" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email7" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario7" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade7" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>8 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome8" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome8" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao8" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado8" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave8" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular8" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo8" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email8" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario8" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade8" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>9 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome9" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome9" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao9" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado9" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave9" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular9" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo9" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email9" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario9" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade9" name="propriedade">
+                </div>
+
+                <div class="usuario" style="display: none">
+                    <h3>10 Nome</h3>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome10" name="nome">
+
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome10" name="sobrenome">
+
+                    <label for="funcao">Função:</label>
+                    <input type="text" id="funcao10" name="funcao">
+
+                    <label for="chamado">Chamado:</label>
+                    <input type="checkbox" id="chamado10" name="chamado">
+
+                    <label for="palavraChave">Palavra Chave:</label>
+                    <input type="text" id="palavraChave10" name="palavraChave">
+
+                    <label for="celular">Cel:</label>
+                    <input type="tel" id="celular10" name="celular">
+
+                    <label for="fixo">Fixo:</label>
+                    <input type="tel" id="fixo10" name="fixo">
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email10" name="email">
+
+                    <label for="particaoUsuario">Partição:</label>
+                    <input type="text" id="particaoUsuario10" name="particaoUsuario">
+
+                    <label for="propriedade">Propriedade:</label>
+                    <input type="text" id="propriedade10" name="propriedade">
+                </div>
+
+            </div>
+            <div class="button-gerar">
+                <button id="addUsuario">Adicionar Usuário +</button>
+                <button id="removeUsuario" class="button-remove">Remover Último Usuário -</button>
+            </div>
+        </form>
+    </section>
+    </div>
+
+    <footer>
+        <p>© 2023 Alarm Center. Todos os direitos reservados.</p>
+        <button onclick="gerarPDF()">Gerar PDF</button>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="/assets/gerador.js"></script>
+
+
+</body>
+
+</html>
