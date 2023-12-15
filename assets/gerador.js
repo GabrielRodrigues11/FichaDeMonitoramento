@@ -204,7 +204,7 @@ function gerarPDF() {
     addContentToPage('Localização do Button: ' + document.getElementById('localizacaoButton').value);
 
     // Adicione espaço entre seções
-    yPosition += 20;
+    yPosition += 10;
 
     // Adicione texto para 'Providências do Inspetor'
     addContentToPage('Providências do Inspetor', { fontSize: 12, font: 'times', color: 'black', margin: 10, style: 'bold' });
