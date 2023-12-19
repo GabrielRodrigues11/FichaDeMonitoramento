@@ -63,10 +63,9 @@ document.getElementById('removeUsuario').addEventListener('click', function (eve
 
 
 
+
+
 //GERAR PDF
-
-
-
 
 
 function gerarPDF() {
@@ -116,14 +115,90 @@ function gerarPDF() {
         yPosition += fontSize + margin;
     }
 
-
     addCenteredText('Ficha De Monitoramento', { fontSize: 18, font: 'times', color: 'black', margin: 10, style: 'bold' });
 
     // Adicione texto para os dados da empresa
+    var conta = document.getElementById('conta');
+    var nomeRazao = document.getElementById('nomeRazao');
+    var endereco = document.getElementById('endereco');
+    var bairro = document.getElementById('bairro');
+    var cidade = document.getElementById('cidade');
+    var estado = document.getElementById('estado');
+    var cep = document.getElementById('cep');
+    var emailResp = document.getElementById('emailResp');
+    var comoChegar = document.getElementById('comoChegar');
+    var providenciaInspetor = document.getElementById('providenciaInput');
+    var modeloCentral = document.getElementById('modeloCentral');
+    var localCentral = document.getElementById('localCentral');
+    var senhaMaster = document.getElementById('senhaMaster');
+    var senhaInstalador = document.getElementById('senhaInstalador');
+    var palavraChaveCentral = document.getElementById('palavraChaveCentral');
+
+    var servicosCheckbox = document.getElementsByName('servico');
+    var servicosSelecionados = Array.from(servicosCheckbox).some((checkbox) => checkbox.checked);
+
+    if (conta.value.trim() === '' ||
+        nomeRazao.value.trim() === '' ||
+        endereco.value.trim() === '' ||
+        bairro.value.trim() === '' ||
+        cidade.value.trim() === '' ||
+        estado.value.trim() === '' ||
+        cep.value.trim() === '' ||
+        emailResp.value.trim() === '' ||
+        comoChegar.value.trim() === '' ||
+        providenciaInspetor.value.trim() === '' ||
+        modeloCentral.value.trim() === '' ||
+        localCentral.value.trim() === '' ||
+        senhaMaster.value.trim() === '' ||
+        senhaInstalador.value.trim() === '' ||
+        palavraChaveCentral.value.trim() === '' ||
+        !servicosSelecionados) {
+
+        alert('Preencha todos os campos obrigatórios antes de gerar o PDF.');
+
+        // Rola até o primeiro campo não preenchido
+        if (conta.value.trim() === '') {
+            conta.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (nomeRazao.value.trim() === '') {
+            nomeRazao.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (endereco.value.trim() === '') {
+            endereco.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (bairro.value.trim() === '') {
+            bairro.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (cidade.value.trim() === '') {
+            cidade.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (estado.value.trim() === '') {
+            estado.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (cep.value.trim() === '') {
+            cep.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (emailResp.value.trim() === '') {
+            emailResp.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (comoChegar.value.trim() === '') {
+            comoChegar.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (providenciaInspetor.value.trim() === '') {
+            providenciaInspetor.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (modeloCentral.value.trim() === '') {
+            modeloCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (localCentral.value.trim() === '') {
+            localCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (senhaMaster.value.trim() === '') {
+            senhaMaster.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (senhaInstalador.value.trim() === '') {
+            senhaInstalador.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (palavraChaveCentral.value.trim() === '') {
+            palavraChaveCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        } else if (!servicosSelecionados) {
+            // Rola até a seção de serviços
+            document.querySelector('.form_servicos').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }
+
+        return;
+    }
+
     addContentToPage('Empresa: Alarm Center', { fontSize: 14, font: 'times', color: 'black', margin: 10, style: 'bold' });
-    addContentToPage('Conta: ' + document.getElementById('conta').value);
-    addContentToPage('Partição: ' + document.getElementById('particao').value);
-    addContentToPage('Técnico: ' + document.getElementById('tecnico').value);
+    addContentToPage('Conta: ' + conta.value);
+    addContentToPage('Partição: ' + particao.value);
+    addContentToPage('Técnico: ' + tecnico.value);
 
     // Adicione espaço entre seções
     yPosition += 10;
@@ -150,6 +225,7 @@ function gerarPDF() {
     addContentToPage('Serviços Prestados:', { fontSize: 12, font: 'times', color: 'black', margin: 10, style: 'bold' });
 
     // Adicione texto para os serviços selecionados
+
     var servicosCheckbox = document.getElementsByName('servico');
     for (var i = 0; i < servicosCheckbox.length; i++) {
         if (servicosCheckbox[i].checked) {
@@ -164,6 +240,14 @@ function gerarPDF() {
     addContentToPage('Observações e Particularidades sobre o Cliente', { fontSize: 12, font: 'times', color: 'black', margin: 10, style: 'bold' });
     addContentToPage('Avisar ao cliente (Disparos):');
     var avisarDisparoCheckbox = document.getElementsByName('avisarDisparo');
+    var peloMenosUmCheckboxAvisarDisparoMarcado = Array.from(avisarDisparoCheckbox).some((checkbox) => checkbox.checked);
+
+    if (!peloMenosUmCheckboxAvisarDisparoMarcado) {
+        alert('Selecione pelo menos uma opção em "Avisar ao cliente (Disparos)" antes de gerar o PDF.');
+        // Você pode querer adicionar um código para rolar até a seção ou fazer algo adequado ao seu layout aqui
+        return;
+    }
+
     for (var i = 0; i < avisarDisparoCheckbox.length; i++) {
         if (avisarDisparoCheckbox[i].checked) {
             addContentToPage('- ' + avisarDisparoCheckbox[i].value);
@@ -174,21 +258,40 @@ function gerarPDF() {
     yPosition += 10;
 
     // Adicione texto para 'Acesso remoto à Central'
-    addContentToPage('Acesso remoto à Central:');
-    var acessoRemotoRadio = document.getElementsByName('acessoRemoto');
-    for (var i = 0; i < acessoRemotoRadio.length; i++) {
-        if (acessoRemotoRadio[i].checked) {
-            addContentToPage('Acesso Remoto: ' + acessoRemotoRadio[i].value);
+    var acessoRemotoRadios = document.getElementsByName('acessoRemoto');
+    var peloMenosUmRadioAcessoRemotoMarcado = Array.from(acessoRemotoRadios).some((radio) => radio.checked);
+
+    // Verificar se pelo menos um dos radio buttons em "URA Habilitada" está marcado
+    var uraHabilitadaRadios = document.getElementsByName('uraHabilitada');
+    var peloMenosUmRadioURAHabilitadaMarcado = Array.from(uraHabilitadaRadios).some((radio) => radio.checked);
+
+    // Se nenhum estiver marcado, exiba um alerta
+    if (!peloMenosUmRadioAcessoRemotoMarcado || !peloMenosUmRadioURAHabilitadaMarcado) {
+        alert('Selecione uma opção "Sim" ou "Não" para todas as escolhas antes de gerar o PDF.');
+        // Você pode adicionar um código para rolar até a seção ou fazer algo adequado ao seu layout aqui
+        return;
+    }
+
+    // Adicionar conteúdo ao PDF para as opções selecionadas em "Acesso Remoto"
+    var opcaoAcessoRemoto = '';
+    for (var i = 0; i < acessoRemotoRadios.length; i++) {
+        if (acessoRemotoRadios[i].checked) {
+            opcaoAcessoRemoto = acessoRemotoRadios[i].value;
+            break;
         }
     }
-    // Adicione texto para 'URA habilitada'
-    addContentToPage('');
-    var uraHabilitadaRadio = document.getElementsByName('uraHabilitada');
-    for (var i = 0; i < uraHabilitadaRadio.length; i++) {
-        if (uraHabilitadaRadio[i].checked) {
-            addContentToPage('URA Habilitada: ' + uraHabilitadaRadio[i].value);
+    addContentToPage('Acesso Remoto à Central: ' + opcaoAcessoRemoto);
+
+    // Adicionar conteúdo ao PDF para a opção selecionada em "URA Habilitada"
+    var opcaoURAHabilitada = '';
+    for (var i = 0; i < uraHabilitadaRadios.length; i++) {
+        if (uraHabilitadaRadios[i].checked) {
+            opcaoURAHabilitada = uraHabilitadaRadios[i].value;
+            break;
         }
     }
+    addContentToPage('URA Habilitada: ' + opcaoURAHabilitada);
+
     addContentToPage('Horário da Ativação Automática: ' + document.getElementById('horarioAtivacao').value);
     addContentToPage('Intervalo de Tempo para Ativar "Sem Movimento": ' + document.getElementById('intervaloSemMovimento').value);
     yPosition += 20
@@ -204,10 +307,12 @@ function gerarPDF() {
     addContentToPage('Localização do Button: ' + document.getElementById('localizacaoButton').value);
 
     // Adicione espaço entre seções
-    yPosition += 10;
+    yPosition += 20;
 
     // Adicione texto para 'Providências do Inspetor'
     addContentToPage('Providências do Inspetor', { fontSize: 12, font: 'times', color: 'black', margin: 10, style: 'bold' });
+    yPosition += 5;
+    addContentToPage('Providencias: ' + document.getElementById('providenciaInput').value);
     var providenciasCheckbox = document.getElementsByName('providenciasInspetor');
     for (var i = 0; i < providenciasCheckbox.length; i++) {
         if (providenciasCheckbox[i].checked) {
@@ -258,9 +363,18 @@ function gerarPDF() {
     // Adicione 'Meios de Comunicação da Central' à página
     addContentToPage('Meios de Comunicação da Central:');
     var meiosComunicacaoCheckboxes = document.getElementsByName('meiosComunicacao');
+    var peloMenosUmCheckboxMeiosComunicacaoMarcado = Array.from(meiosComunicacaoCheckboxes).some((checkbox) => checkbox.checked);
+
+    if (!peloMenosUmCheckboxMeiosComunicacaoMarcado) {
+        alert('Selecione pelo menos uma opção em "Meios de Comunicação da Central" antes de gerar o PDF.');
+        // Adicione código adicional para rolar até a seção ou realizar a ação adequada ao seu layout
+        return;
+    }
+
+    // Adicionar conteúdo ao PDF para as opções selecionadas em "meiosComunicacao"
     for (var i = 0; i < meiosComunicacaoCheckboxes.length; i++) {
         if (meiosComunicacaoCheckboxes[i].checked) {
-            addContentToPage(`${meiosComunicacaoCheckboxes[i].value}: Selecionado`);
+            addContentToPage(`${meiosComunicacaoCheckboxes[i].value}: OK`);
         } else {
             addContentToPage(`${meiosComunicacaoCheckboxes[i].value}: Não Selecionado`);
         }
@@ -634,24 +748,9 @@ function gerarPDF() {
         yPosition += 10;
     }
 
-    pdf.save('formulario.pdf');
+    addContentToPage('Palavra chave da central: ' + document.getElementById('palavraChaveCentral').value);
+
+
+    pdf.save(document.getElementById('nomeRazao').value + '.pdf');
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
