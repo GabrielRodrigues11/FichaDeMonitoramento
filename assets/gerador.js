@@ -60,9 +60,20 @@ document.getElementById('removeUsuario').addEventListener('click', function (eve
     }
 });
 
+// CONFIGURAÇÃO DO INPUT TEMPO
 
+function formatarHora(input) {
+    // Limpa qualquer caractere não numérico
+    let valorLimpo = input.value.replace(/[^0-9]/g, '');
 
+    // Adiciona ":" entre os dois primeiros dígitos e os dois últimos dígitos
+    if (valorLimpo.length > 2) {
+        valorLimpo = valorLimpo.substring(0, 2) + ':' + valorLimpo.substring(2);
+    }
 
+    // Atualiza o valor no campo
+    input.value = valorLimpo;
+}
 
 
 //GERAR PDF
