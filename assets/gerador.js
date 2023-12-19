@@ -60,6 +60,7 @@ document.getElementById('removeUsuario').addEventListener('click', function (eve
     }
 });
 
+
 // CONFIGURAÇÃO DO INPUT TEMPO
 
 function formatarHora(input) {
@@ -148,62 +149,190 @@ function gerarPDF() {
     var servicosCheckbox = document.getElementsByName('servico');
     var servicosSelecionados = Array.from(servicosCheckbox).some((checkbox) => checkbox.checked);
 
-    if (conta.value.trim() === '' ||
-        nomeRazao.value.trim() === '' ||
-        endereco.value.trim() === '' ||
-        bairro.value.trim() === '' ||
-        cidade.value.trim() === '' ||
-        estado.value.trim() === '' ||
-        cep.value.trim() === '' ||
-        emailResp.value.trim() === '' ||
-        comoChegar.value.trim() === '' ||
-        providenciaInspetor.value.trim() === '' ||
-        modeloCentral.value.trim() === '' ||
-        localCentral.value.trim() === '' ||
-        senhaMaster.value.trim() === '' ||
-        senhaInstalador.value.trim() === '' ||
-        palavraChaveCentral.value.trim() === '' ||
-        !servicosSelecionados) {
+    function marcarCamposVazios(campos) {
+        campos.forEach(campo => {
+            if (campo.type === 'checkbox') {
+                // Se for um checkbox, verifica se está marcado
+                if (!campo.checked) {
+                    campo.classList.add('campo-vazio');
+                } else {
+                    campo.classList.remove('campo-vazio');
+                }
+            } else {
+                // Para outros tipos de campos, verifica se está vazio
+                if (campo.value.trim() === '') {
+                    campo.classList.add('campo-vazio');
+                } else {
+                    campo.classList.remove('campo-vazio');
+                }
+            }
+        });
+    }
 
-        alert('Preencha todos os campos obrigatórios antes de gerar o PDF.');
+    // Verifica se os campos estão preenchidos
+    var camposObrigatorios = [
+        conta, nomeRazao, endereco, bairro, cidade, estado, cep,
+        emailResp, comoChegar, providenciaInspetor, modeloCentral,
+        localCentral, senhaMaster, senhaInstalador, palavraChaveCentral
+    ];
 
-        // Rola até o primeiro campo não preenchido
-        if (conta.value.trim() === '') {
-            conta.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (nomeRazao.value.trim() === '') {
-            nomeRazao.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (endereco.value.trim() === '') {
-            endereco.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (bairro.value.trim() === '') {
-            bairro.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (cidade.value.trim() === '') {
-            cidade.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (estado.value.trim() === '') {
-            estado.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (cep.value.trim() === '') {
-            cep.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (emailResp.value.trim() === '') {
-            emailResp.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (comoChegar.value.trim() === '') {
-            comoChegar.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (providenciaInspetor.value.trim() === '') {
-            providenciaInspetor.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (modeloCentral.value.trim() === '') {
-            modeloCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (localCentral.value.trim() === '') {
-            localCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (senhaMaster.value.trim() === '') {
-            senhaMaster.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (senhaInstalador.value.trim() === '') {
-            senhaInstalador.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (palavraChaveCentral.value.trim() === '') {
-            palavraChaveCentral.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        } else if (!servicosSelecionados) {
-            // Rola até a seção de serviços
-            document.querySelector('.form_servicos').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-        }
+    var servicosCheckbox = document.getElementsByName('servico');
+    var peloMenosUmServicoSelecionado = Array.from(servicosCheckbox).some((checkbox) => checkbox.checked);
+
+    // Adiciona a classe de destaque aos campos vazios
+    marcarCamposVazios(camposObrigatorios);
+
+    // Remove a classe de destaque de todos os checkboxes
+    servicosCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    // Se pelo menos um serviço estiver marcado, remove a classe de destaque de todos os checkboxes
+    if (peloMenosUmServicoSelecionado) {
+        servicosCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.remove('campo-vazio');
+        });
+    } else {
+        // Se nenhum serviço estiver marcado, adiciona a classe de destaque a todos os checkboxes
+        servicosCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+    }
+
+    // Campos específicos para validar
+    var avisarDisparoCheckbox = document.getElementsByName('avisarDisparo');
+    var peloMenosUmCheckboxAvisarDisparoMarcado = Array.from(avisarDisparoCheckbox).some((checkbox) => checkbox.checked);
+
+    avisarDisparoCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    if (!peloMenosUmCheckboxAvisarDisparoMarcado) {
+        alert('Selecione pelo menos uma opção em "Avisar ao cliente (Disparos)" antes de gerar o PDF.');
+
+        // Adiciona a classe de destaque aos rótulos dos checkboxes "Avisar ao cliente (Disparos)"
+        avisarDisparoCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        // Rola até a seção de "Avisar ao cliente (Disparos)"
+        document.querySelector('.avisar-cliente').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
 
         return;
+    }
+
+    // Campos de radio buttons
+    var acessoRemotoRadio = document.getElementsByName('acessoRemoto');
+    var uraHabilitadaRadio = document.getElementsByName('uraHabilitada');
+
+    // Campos de checkboxes adicionais
+    var acessoRemotoTesteCheckbox = document.getElementsByName('acessoRemotoTeste');
+    var meiosComunicacaoCheckbox = document.getElementsByName('meiosComunicacao');
+    var acessoRemoto12hCheckbox = document.getElementsByName('acessoRemoto12h');
+    var acessoRemoto24hCheckbox = document.getElementsByName('acessoRemoto24h');
+
+    // Adiciona a classe de destaque aos rótulos dos checkboxes adicionais
+    acessoRemotoTesteCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    acessoRemoto12hCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    acessoRemoto24hCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    // Verifica se pelo menos um checkbox em cada grupo adicional está marcado
+    if (
+        !peloMenosUmCheckboxMarcado(acessoRemotoTesteCheckbox) &&
+        !peloMenosUmCheckboxMarcado(acessoRemoto12hCheckbox) &&
+        !peloMenosUmCheckboxMarcado(acessoRemoto24hCheckbox)
+    ) {
+        alert('Marque pelo menos uma opção para os campos de checkboxes antes de avançar.');
+
+        // Adiciona a classe de destaque aos rótulos dos checkboxes adicionais
+        acessoRemotoTesteCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        acessoRemoto12hCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        acessoRemoto24hCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        // Rola até a seção dos checkboxes adicionais
+        document.querySelector('.acesso-remoto').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+        return;
+    }
+
+
+    // Adiciona a classe de destaque aos rótulos dos grupos de radio buttons
+    acessoRemotoRadio.forEach(radio => {
+        radio.parentNode.parentNode.classList.remove('campo-vazio');
+    });
+
+    uraHabilitadaRadio.forEach(radio => {
+        radio.parentNode.parentNode.classList.remove('campo-vazio');
+    });
+
+    // Campos de checkboxes adicionais
+    acessoRemotoTesteCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    meiosComunicacaoCheckbox.forEach(checkbox => {
+        checkbox.parentNode.classList.remove('campo-vazio');
+    });
+
+    if (!peloMenosUmRadioSelecionado(acessoRemotoRadio) || !peloMenosUmRadioSelecionado(uraHabilitadaRadio)) {
+        alert('Selecione uma opção para os campos de radio buttons antes de gerar o PDF.');
+
+        // Adiciona a classe de destaque aos rótulos dos grupos de radio buttons
+        acessoRemotoRadio.forEach(radio => {
+            radio.parentNode.parentNode.classList.add('campo-vazio');
+        });
+
+        uraHabilitadaRadio.forEach(radio => {
+            radio.parentNode.parentNode.classList.add('campo-vazio');
+        });
+
+        // Rola até a seção dos grupos de radio buttons
+        document.querySelector('.container_acesso').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+        return;
+    }
+
+    // Campos de checkboxes adicionais
+    if (!peloMenosUmCheckboxMarcado(acessoRemotoTesteCheckbox) || !peloMenosUmCheckboxMarcado(meiosComunicacaoCheckbox)) {
+        alert('Selecione pelo menos uma opção para os campos de checkboxes antes de gerar o PDF.');
+
+        // Adiciona a classe de destaque aos rótulos dos checkboxes adicionais
+        acessoRemotoTesteCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        meiosComunicacaoCheckbox.forEach(checkbox => {
+            checkbox.parentNode.classList.add('campo-vazio');
+        });
+
+        // Rola até a seção dos checkboxes adicionais
+        document.querySelector('.acesso-remoto').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+
+        return;
+    }
+
+    function peloMenosUmRadioSelecionado(radios) {
+        return Array.from(radios).some(radio => radio.checked);
+    }
+
+    function peloMenosUmCheckboxMarcado(checkboxes) {
+        return Array.from(checkboxes).some(checkbox => checkbox.checked);
     }
 
     addContentToPage('Empresa: Alarm Center', { fontSize: 14, font: 'times', color: 'black', margin: 10, style: 'bold' });
