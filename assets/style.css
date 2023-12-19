@@ -188,10 +188,12 @@ h2 {
     width: 20px;
 }
 
-.providencia input[type="text"] {
-    margin-left: 5px;
-    /* Ajuste a margem conforme necessário */
-    width: 200px;
+#providenciaInput {
+    width: 100%;
+}
+
+#numeroChaveiros {
+    width: 40%;
 }
 
 .senhas {
