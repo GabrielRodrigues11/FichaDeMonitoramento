@@ -145,13 +145,13 @@
                     <div class="horarios">
                         <label for="horarioAtivacao">
                             <p>Horário da Ativação Automática:</p>
-                            <input type="time" id="horarioAtivacao" name="horarioAtivacao">
+                            <input type="text" id="horarioAtivacao" name="horarioAtivacao" placeholder="HH:mm" maxlength="5" oninput="formatarHora(this)" />
                         </label>
                     </div>
                     <div class="horarios">
                         <label for="intervaloSemMovimento">
                             <p>Intervalo de Tempo para Ativar "Sem Movimento":</p>
-                            <input type="time" id="intervaloSemMovimento" name="intervaloSemMovimento">
+                            <input type="text" id="intervaloSemMovimento" name="intervaloSemMovimento" placeholder="HH:mm" maxlength="5" oninput="formatarHora(this)" />
                         </label>
                     </div>
                 </div>
