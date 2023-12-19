@@ -9,11 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
         integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
     <header>
-        <img src="Img/logo.png" alt="Alarm Center Logo">
+        <img src="/Img/logo.png" alt="Alarm Center Logo">
         <h1>Ficha de Monitoramento</h1>
     </header>
 
@@ -184,6 +185,8 @@
         <h3>Providências do Inspetor</h3>
 
         <div class="providencia">
+            <label for="providencia">Providencias do inspetor: </label>
+            <input type="text" name="providenciasInspetor" id="providenciaInput">
             <label><input type="checkbox" name="providenciasInspetor" value="Vigia no local"> Vigia no local</label>
             <label><input type="checkbox" name="providenciasInspetor" value="Cachorro no local"> Cachorro no
                 local</label>
@@ -807,15 +810,16 @@
             </div>
         </form>
     </section>
-    </div>
 
+    <label for="palavraChave">Palavra chave da Central:</label>
+    <input type="text" id="palavraChaveCentral" name="palavraChave">
     <footer>
         <p>© 2023 Alarm Center. Todos os direitos reservados.</p>
         <button onclick="gerarPDF()">Gerar PDF</button>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="assets/gerador.js"></script>
+    <script src="/assets/gerador.js"></script>
 
 
 </body>
